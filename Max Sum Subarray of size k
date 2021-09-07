@@ -1,0 +1,22 @@
+//Input:
+//N = 4, K = 2
+//Arr = [100, 200, 300, 400]
+//Output:
+//700
+//Explanation:
+//Arr3  + Arr4 =700,
+//which is maximum.
+int maximumSumSubarray(int K, vector<int> &arr , int N){
+int i=0,j=0;
+int sum=0,max_sum=INT_MIN;
+        while(j<N){
+            sum+=arr[j];
+            if(j-i+1==K){
+                max_sum=max(sum,max_sum);
+                sum-=arr[i];
+                i++;
+            }
+            j++;
+        }
+        return max_sum;
+    }
